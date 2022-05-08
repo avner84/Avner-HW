@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https: //fonts.googleapis.com/css2? family= Rubik & display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            direction: rtl;
+            font-family: "Rubik", sans-serif;
+        }
+        
+        main {
+            width: 100%;
+        }
+        
+        nav {
+            width: 100%;
+            height: 10vh;
+            background-color: #0d4491;
+            opacity: 0.3;
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav:hover {
+            opacity: 0.6;
+        }
+        
+        #ulNav li {
+            display: inline;
+            padding-left: 30px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        #ulNav li a:hover {
+            font-weight: bold;
+        }
+        
+        #ulNav {
+            list-style: none;
+            margin-right: 10vw;
+        }
+        
+        section {
+            height: 100vh;
+            padding-top: 20vh;
+            padding-right: 10vw;
+            padding-left: 10vw;
+        }
+        
+        #home {
+            background-color: #2b78e2;
+            padding-top: 25vh;
+        }
+        
+        #mainHomeDiv {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        #education {
+            background-color: rgb(43, 226, 113);
+            padding-top: 25vh;
+        }
+        
+        #workExperience {
+            background-color: rgb(214, 43, 226);
+        }
+        
+        #professionalSkills {
+            background-color: rgb(186, 208, 45);
+        }
+        
+        #contact {
+            background-color: rgb(36, 221, 159);
+        }
+        
+        #home img {
+            width: 45vh;
+            height: 45vh;
+            margin-left: 50px;
+            margin-right: 50px;
+            border: white 5px solid;
+        }
+        
+        #home h1 {
+            color: azure;
+            font-size: 2.4em;
+            line-height: 1.4em;
+        }
+        
+        .footerHomeDiv {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .seeMore {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 13vh;
+        }
+        
+        .seeMore i {
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        @keyframes arrowEmbossing {
+            0% {
+                font-size: 1.2em;
+                ;
+            }
+            50% {
+                font-size: 1.5em;
+            }
+            100% {
+                font-size: 1.2em;
+                ;
+            }
+        }
+        
+        .fa-chevron-down {
+            animation: arrowEmbossing 1s linear;
+            animation-iteration-count: infinite;
+        }
+        
+        #mainEducationDiv img {
+            width: 60vh;
+            margin-left: 50px;
+            margin-right: 50px;
+            border: white 5px solid;
+        }
+        
+        #mainEducationDiv {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #387fb9;
+            padding-bottom: 4vh;
+        }
+        
+        #educationDetails li {
+            font-size: 1.2em;
+            color: #24588f;
+            font-weight: 600;
+        }
+        
+        #educationDetails li {
+            padding-bottom: 1em;
+        }
+        
+        #educationDetails p {
+            font-size: 1.7em;
+            color: #347cb7;
+            font-weight: 700;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <nav>
+            <ul id="ulNav">
+                <li>
+                    <a href="#home">בית</a>
+                </li>
+                <li>
+                    <a href="#education">השכלה</a>
+                </li>
+                <li>
+                    <a href="#workExperience">ניסיון תעסוקתי</a>
+                </li>
+                <li>
+                    <a href="#professionalSkills">כישורים מקצועיים</a>
+                </li>
+                <li>
+                    <a href="#contact">יצירת קשר</a>
+                </li>
+            </ul>
+        </nav>
+        <section id="home">
+            <div id="mainHomeDiv">
+                <h1>
+                    אהלן! <br />שמי אבנר מושניק, ואני בעל תואר דוקטור בהיסטוריה של מדינת ישראל והתנועה הציונית, ואיש ה-WEB שלכם בעתיד הקרוב...
+                </h1>
+
+                <img src="images/me.jpg" alt="me" />
+            </div>
+            <div class="footerHomeDiv">
+                <a href="#education">
+                    <div class="seeMore">
+                        <p class="seeMoreP" style="font-size: 1.8em">ראה עוד</p>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="education">
+            <div id="mainEducationDiv">
+                <img src="images/education.jpg" alt="education">
+                <div id="educationDetails">
+
+                    <h2>ההשכלה שלי:</h2>
+                    <ul>
+                        <li>בין השנים 2012-2009 למדתי תואר ראשון בלימודי המזרח התיכון ומדע המדינה באוניברסיטת אריאל וסיימתי בהצטיינות יתירה.</li>
+                        <li>בין השנים 2014-2012 למדתי לתואר שני במורשת ישראל באוניברסיטת אריאל, וסיימתי גם כן בהצטיינות יתירה.</li>
+                        <li>ובין השנים 2021-2016 כתבתי עבודת דוקטורט בתחומי ההיסטוריה של מדינת ישראל והתנועה הציונית.</li>
+                    </ul>
+                    <P>היום אני לומד פיתוח תוכנה ב"ווב סקול" ומתכנן למצוא את מקומי בקרוב בעולם מפתחי ה-Full Stack</P>
+
+                </div>
+            </div>
+            <div class="footerHomeDiv">
+                <a href="#workExperience">
+                    <div class="seeMore" style="padding-top: 8vh; color: #24588f;">
+                        <p class="seeMoreP" style="font-size: 1.8em">ראה עוד</p>
+                        <i class="fa-solid fa-chevron-down" style="color: #24588f;"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="workExperience"></section>
+        <section id="professionalSkills"></section>
+        <section id="contact"></section>
+    </main>
+</body>
+
+</html>
