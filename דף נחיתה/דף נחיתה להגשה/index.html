@@ -162,7 +162,7 @@
             justify-content: space-around;
         }
         
-        h2 {
+        #mainEducationDiv h2 {
             font-size: 2.5em;
             color: #387fb9;
             padding-bottom: 4vh;
@@ -182,6 +182,69 @@
             font-size: 1.7em;
             color: #347cb7;
             font-weight: 700;
+        }
+        
+        #mainWorkExperienceDiv {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2vw 0 3vw;
+        }
+        
+        #mainWorkExperienceDiv img {
+            width: 60vh;
+            margin-right: 50px;
+            border: white 5px solid;
+        }
+        
+        #mainWorkExperienceDiv h2 {
+            font-size: 2.5em;
+            color: white;
+            padding-bottom: 2vh;
+        }
+        
+        #myExperience {
+            width: 100%;
+        }
+        
+        #myExperience {
+            color: white;
+        }
+        
+        .nameExperience {
+            font-weight: bold;
+        }
+        
+        .yearsAndNamesExperience {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+        }
+        
+        .yearsExperience {
+            display: flex;
+            justify-content: left;
+            padding-left: 12%;
+        }
+        
+        .experienceDetails {
+            padding-top: 1%;
+            padding-right: 20%;
+        }
+        
+        #myExperience>div {
+            padding-top: 3%;
+        }
+        
+        #workExperienceDetails {
+            width: 60%;
+        }
+        
+        .experienceDetails {
+            font-size: 0.8em;
+        }
+        
+        #mainWorkExperienceDiv img {
+            width: (1.3*30%);
+            height: 30%;
         }
     </style>
     <title>Document</title>
@@ -249,7 +312,77 @@
                 </a>
             </div>
         </section>
-        <section id="workExperience"></section>
+        <section id="workExperience">
+            <div id="mainWorkExperienceDiv">
+                <div id="workExperienceDetails">
+                    <h2>הניסיון שלי:</h2>
+                    <div id="myExperience">
+                        <div>
+                            <div class="yearsAndNamesExperience">
+                                <div class="yearsExperience">
+                                    <p>2016</p>
+                                </div>
+                                <div class="nameExperience">מנהל מכירות ב-YONIK נופש כשר</div>
+
+                            </div>
+                            <div class="experienceDetails">הרכבת חבילות נופש וניהול מחלקת המכירות של מלונות החברה. עמידה ביעדים, בקרת איכות, ומתן דגש על שביעות רצון הלקוחות.</div>
+                        </div>
+                        <div>
+                            <div class="yearsAndNamesExperience">
+                                <div class="yearsExperience">
+                                    <p>2020-2016</p>
+                                </div>
+                                <div class="nameExperience">מלגאי במסגרת כתיבת דוקטורט</div>
+
+                            </div>
+                            <div class="experienceDetails">מחקר, כתיבה, ראיונות, סיורי שטח ופגישות עם אוכלוסיות שונות.</div>
+                        </div>
+                        <div>
+                            <div class="yearsAndNamesExperience">
+                                <div class="yearsExperience">
+                                    <p>2016-2015</p>
+                                </div>
+                                <div class="nameExperience">קשב בדוברות משרד ראש הממשלה, ירושלים</div>
+
+                            </div>
+                            <div class="experienceDetails">מעקב שוטף ורצוף אחר פרסומים בכלי התקשורת המרכזיים השונים בישראל, תוך הוצאת מסרונים והודעות בזמן אמת לגורמים הרלוונטיים.</div>
+                        </div>
+                        <div>
+                            <div class="yearsAndNamesExperience">
+                                <div class="yearsExperience">
+                                    <p>2014-2012</p>
+                                </div>
+                                <div class="nameExperience">ניהול ארכיב ברשות המיסים, ירושלים</div>
+
+                            </div>
+                            <div class="experienceDetails">ממשק עם צוות עבודה, סדר וארגון, ניהול קשרים עם גורמים מגוונים בדרגות ניהול שונות, ודיגיטציה של ארכיון הרשות. </div>
+                        </div>
+                        <div>
+                            <div class="yearsAndNamesExperience">
+                                <div class="yearsExperience">
+                                    <p>2012-2009</p>
+                                </div>
+                                <div class="nameExperience">ניהול עסק עצמאי בתחום עריכת וידאו</div>
+
+                            </div>
+                            <div class="experienceDetails">הובלה וליווי תהליכים, שיווק במדיות השונות, ניהול לקוחות, ועריכת סרטים. </div>
+                        </div>
+                    </div>
+
+                </div>
+                <img src="images/workExperience.jpg" alt="workExperience">
+            </div>
+
+            </div>
+            <div class="footerHomeDiv">
+                <a href="#professionalSkills">
+                    <div class="seeMore" style="padding-top: 8vh;">
+                        <p class="seeMoreP" style="font-size: 1.8em">ראה עוד</p>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
         <section id="professionalSkills"></section>
         <section id="contact"></section>
     </main>
