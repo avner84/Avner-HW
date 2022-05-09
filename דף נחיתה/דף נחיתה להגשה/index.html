@@ -194,6 +194,8 @@
             width: 60vh;
             margin-right: 50px;
             border: white 5px solid;
+            width: (1.3*30%);
+            height: 30%;
         }
         
         #mainWorkExperienceDiv h2 {
@@ -242,12 +244,33 @@
             font-size: 0.8em;
         }
         
-        #mainWorkExperienceDiv img {
-            width: (1.3*30%);
-            height: 30%;
+        #mainprofessionalSkillsDiv {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #mainprofessionalSkillsDiv img {
+            width: 40%;
+            border: white 5px solid;
+        }
+        
+        #professionalSkillsDetails {
+            width: 60%;
+        }
+        
+        #professionalSkillsDetails h2 {
+            font-size: 2.5em;
+            color: white;
+            padding-bottom: 2vh;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #professionalSkillsDetails {
+            padding-right: 6%;
         }
     </style>
-    <title>Document</title>
+    <title>אבנר מושניק - קורות חיים</title>
 </head>
 
 <body>
@@ -320,7 +343,7 @@
                         <div>
                             <div class="yearsAndNamesExperience">
                                 <div class="yearsExperience">
-                                    <p>2016</p>
+                                    <p>2021</p>
                                 </div>
                                 <div class="nameExperience">מנהל מכירות ב-YONIK נופש כשר</div>
 
@@ -383,7 +406,23 @@
                 </a>
             </div>
         </section>
-        <section id="professionalSkills"></section>
+        <section id="professionalSkills">
+            <div id="mainprofessionalSkillsDiv">
+                <img src="images/professionalSkills.jpg" alt="professionalSkills">
+                <div id="professionalSkillsDetails">
+                    <h2>הכישורים שלי:</h2>
+                    <ul>
+                        <li>בעל השכלה רחבה ותחומי עניין מגוונים.</li>
+                        <li>בעל מוסר עבודה גבוה ולמידה עצמית מהירה, חשיבה יצירתית ומקורית בפתרון בעיות.</li>
+                        <li>כישורי כתיבה וניסוח ברמה גבוהה.</li>
+                        <li>יחסים בינאישיים מצוינים, יכולת ניהול מו"מ, שיתופי פעולה, ועבודת צוות.</li>
+                        <li>מנוסה בעבודה מול גורמים ציבוריים ופרטיים, עבודה תחת לחץ ועמידה בזמנים.</li>
+                        <li>חריצות, מקוריות, דייקנות, סקרנות, יכולת למידה עצמית, עמידה בזמנים.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="contact"></section>
     </main>
 </body>
