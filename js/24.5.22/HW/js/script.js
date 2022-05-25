@@ -258,4 +258,13 @@ function addCard() {
     cardsGenerator();
     idCar++;
 
+    document.querySelector("#brand").value = "";
+    document.querySelector("#model").value = "";
+    document.querySelector("#urlImage").value = "";
+    document.querySelector("#year").value = "";
+    document.querySelector("#hand").value = "";
+    document.querySelector("#engineCapacity").value = "";
+    document.querySelector("#price").value = "";
+
+
 }
