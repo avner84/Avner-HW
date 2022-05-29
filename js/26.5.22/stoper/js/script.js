@@ -9,10 +9,13 @@ const T = {
     stop: function() {
 
         clearInterval(this.interval);
+        B.start.removeEventListener("click", T.start);
     },
     reset: function() {
 
+
         clearInterval(this.interval);
+        B.start.removeEventListener("click", T.start);
 
         T.mili = 0;
         T.sec = 0;
@@ -22,6 +25,9 @@ const T = {
         $.min.innerHTML = "00";
         $.sec.innerHTML = "00";
         $.hour.innerHTML = "00";
+
+        B.start.addEventListener("click", T.start);
+
     },
 };
 
