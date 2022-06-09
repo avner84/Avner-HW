@@ -1,27 +1,36 @@
 const miniDiv = document.querySelector("#smallDiv");
-// miniDiv.addEventListener("mouseover", moveDiv);
+const h3Timer = document.querySelector("#runTime");
+const h3Score = document.querySelector("#h3Score");
+const h3MissedClicks = document.querySelector("#h3MissedClicks");
+const container = document.querySelector("#container");
+const h3Level = document.querySelector("#h3Level");
+const h3pointsToNextLevel = document.querySelector("#h3pointsToNextLevel");
+const header = document.querySelector("h1");
+const colorsMiniDiv = ["red", "yellow", "greenyellow", "blue", "white"];
 
 var time = 60;
-const h3Timer = document.querySelector("#runTime");
 var timerInterval = null;
 var moveTimeout = null;
 var scores = 0;
 var level = 1;
-const h3Score = document.querySelector("#h3Score");
 var missedClicks = 0;
-const h3MissedClicks = document.querySelector("#h3MissedClicks");
-const container = document.querySelector("#container");
-container.addEventListener("click", negativeScore);
-miniDiv.addEventListener("mousedown", addPositiveScore);
 var pointToNextLevel = 10;
-const h3Level = document.querySelector("#h3Level");
-const h3pointsToNextLevel = document.querySelector("#h3pointsToNextLevel");
-const colorsMiniDiv = ["red", "yellow", "greenyellow", "blue", "white"];
+var divEscapeTime = 300;
+var divRotationTime = 2;
+
+header.addEventListener("click", restart);
+
+miniDiv.style.animationPlayState = 'paused';
+
+
+
 let winners = [];
 const user = {};
-let divEscapeTime = 300;
-let flag = true;
-let divRotationTime = 2;
+
+let flag = true; //?
+
+
+
 
 function moveDiv() {
     if (!moveTimeout) {
@@ -43,12 +52,12 @@ function rotateDiv() {
 }
 
 function runTimer() {
-    const timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         if (time > 0) {
             time--;
             h3Timer.innerHTML = time;
         } else {
-            // gameOver();
+            gameOver();
         }
     }, 1000);
 }
@@ -76,7 +85,7 @@ function negativeScore() {
 function nextLevel() {
 
     if (level === 6) {
-        // gameOver()
+        gameOver()
     } else {
 
         miniDiv.style.backgroundColor = colorsMiniDiv[level];
@@ -88,7 +97,6 @@ function nextLevel() {
         h3Timer.innerHTML = time;
         divEscapeTime -= 50;
         divRotationTime -= 0.25;
-        // miniDiv.style.animationDuration = divRotationTime + "s";
         miniDiv.style.animationDuration = divRotationTime + "s"
 
 
@@ -101,15 +109,20 @@ function gradesDirector() {
     } else {
         if (winners.length > 1) {
             winners.sort((a, b) => parseFloat(b.grade) - parseFloat(a.grade)); //Arranges the array from high grade to low
-        }
-
-        for (let i = 0; i < winners.length; i++) {
-            if (winners[length - 1].grade < scores) {
+            if (winners[winners.length - 1].grade < scores) {
                 winners.pop();
                 newWinner();
             }
+
         }
+
     }
+
+
+    header.innerHTML = "click here to start the game";
+    header.style.color = "purple";
+    header.addEventListener("click", restart);
+
 }
 
 function newWinner() {
@@ -132,7 +145,6 @@ function newWinner() {
 }
 
 function updateWinersList() {
-    debugger;
     if (localStorage.getItem("Winners")) {
         winners = JSON.parse(localStorage.getItem("Winners"));
         let winnerDetails = "";
@@ -149,7 +161,34 @@ function updateWinersList() {
 
 function restart() {
     updateWinersList();
+    header.innerHTML = "CATCH ME IF YOU CAN";
+    header.style.color = "black";
+
+    time = 60;
+    h3Timer.innerHTML = time;
+
+    scores = 0;
+    h3Score.innerHTML = scores;
+
+    level = 1;
+    h3Level.innerHTML = level;
+
+    missedClicks = 0;
+    h3MissedClicks.innerHTML = missedClicks;
+
+    pointToNextLevel = 10;
+    h3pointsToNextLevel.innerHTML = pointToNextLevel;
+
+    divEscapeTime = 300;
+    divRotationTime = 2;
+    timerInterval = null;
+    moveTimeout = null;
+
     miniDiv.addEventListener("mouseover", moveDiv);
+    miniDiv.addEventListener("mousedown", addPositiveScore);
+    container.addEventListener("click", negativeScore);
+    header.removeEventListener("click", restart);
+    miniDiv.style.animationPlayState = 'running';
 
 
     runTimer();
@@ -158,13 +197,41 @@ function restart() {
 
 function gameOver() {
 
-    if (flag) {
 
-        clearInterval(timerInterval);
+    clearInterval(timerInterval);
+    stopGame();
+
+    setTimeout(function() {
         alert("GAME OVER");
         gradesDirector();
-        flag = false;
-    }
+    }, 50);
+
+
 }
 
-restart();
+function stopGame() {
+
+    miniDiv.style.transform = "rotate(360deg)";
+
+    miniDiv.removeEventListener("mouseover", moveDiv);
+    miniDiv.removeEventListener("mousedown", addPositiveScore);
+    container.removeEventListener("click", negativeScore);
+    miniDiv.style.animationPlayState = 'paused';
+    miniDiv.style.transform = "rotate(360deg)";
+    miniDiv.style.top = "5%";
+    miniDiv.style.left = "3%";
+
+
+    if (moveTimeout) {
+        clearTimeout(moveTimeout);
+        moveTimeout = null;
+    }
+
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+
+}
+
+updateWinersList();
