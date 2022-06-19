@@ -7,15 +7,19 @@ export function init() {
 
     inputSearch.addEventListener("input", playMovieSearch)
 
+    console.log("test");
 
 }
 
-/////////
-// function playMovieSearch() {
-//     return new Promise(resolve => {
-//         resolve(modelSearch.movieSearch(inputSearch));
+// /////////
+// async function playMovieSearch(inputSearch) {
 
-//     });
+//     console.log(inputSearch.value);
+
+//     // return new Promise(resolve => {
+//     //     resolve(modelSearch.movieSearch(inputSearch));
+
+//     // });
 
 // }
 
@@ -31,9 +35,12 @@ export function init() {
 
 
 
-async function playMovieSearch() { return modelSearch.movieSearch(inputSearch); }
+// async function playMovieSearch() {
+//     var arr = await modelSearch.movieSearch(inputSearch);
+//     console.log(arr);
+// }
 
-playMovieSearch().then(
-    function(value) {
-        console.log("bdika: " + value);
-    });
+// playMovieSearch().then(
+//     function(value) {
+//         console.log("bdika: " + value);
+//     });

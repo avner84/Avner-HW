@@ -3,11 +3,13 @@ var moviesArray = [];
 
 
 export function movieSearch(inputSearch) {
+    console.log("123");
 
+    return ("bdika" + inputSearch.value)
 
     moviesArray = []
 
-    fetch(`http://www.omdbapi.com/?s=${inputSearch.value}&apikey=5e7de93e`)
+    return await fetch(`http://www.omdbapi.com/?s=${inputSearch.value}&apikey=5e7de93e`)
         .then(response => response.json())
         .then(response => {
             if (response.Response == "True") {
@@ -21,7 +23,12 @@ export function movieSearch(inputSearch) {
 
             }
         }).finally(() => {
-            console.log(moviesArray.length);
+            // console.log(moviesArray.length);
+
+            var c = "i am from a model";
+
+            return c;
+
 
         })
 

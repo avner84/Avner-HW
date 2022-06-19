@@ -134,6 +134,7 @@
         
         .plot {
             margin-top: 5%;
+            overflow: auto;
         }
         
         .btn-secondary {
