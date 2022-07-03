@@ -1,4 +1,6 @@
 const digits = document.querySelectorAll(".digit");
+var audio = new Audio('../../../sound/click.mp3');
+
 export function showKeyboardPanel() {
 
     $("form").hide();
@@ -10,6 +12,7 @@ export function showKeyboardPanel() {
 export function emphasizeDigit(digitId) {
 
     $(`#${digitId}`)[0].style.color = "red";
+    audio.play();
 
 }
 
