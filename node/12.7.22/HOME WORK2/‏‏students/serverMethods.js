@@ -22,8 +22,9 @@ async function createStudent(req) {
     for await (const chunk of req) {
         buffers.push(chunk);
     }
-    let newStudent =  Buffer.concat(buffers).toString();
-    let newStudentObj =  JSON.parse(newStudent);
+    let newStuden =  Buffer.concat(buffers).toString();
+    console.log('newStuden :', newStuden);
+    let newStudentObj =  JSON.parse(newStuden);
 
     let studentsList = getStusents();
     let objStudents = JSON.parse(studentsList);
@@ -43,6 +44,7 @@ async function checkId(req) {
         buffers.push(chunk);
     }
     let newStudent = Buffer.concat(buffers).toString();
+    console.log('newStudent :', newStudent);
     let newStudentObj =  JSON.parse(newStudent);
 
     let id = newStudentObj.id;
