@@ -32,3 +32,16 @@ main {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+form {
+    border: 4px solid rgb(127, 127, 252);
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    margin: auto;
+}
+
+#submit{
+    margin-top: 10px;
+    background-color: rgb(251, 122, 122);
+}

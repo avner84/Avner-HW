@@ -36,9 +36,8 @@ const server = http.createServer(async (req, res) => {
             res.end(loginJS);
             break;
         case "/removeStudent":
-            var studentRemoveObj = serverMethods.deleteStudent();
-            var studentRemoveStr = JSON.stringify(studentRemoveObj)
-            res.end(studentRemoveStr);
+            var infoAboutDeletedStudents = serverMethods.deleteStudent(req);
+                       res.end(infoAboutDeletedStudents);
             break;
         case "/showStudenslist":
             const studentsList = serverMethods.getStusents();
@@ -60,23 +59,28 @@ const server = http.createServer(async (req, res) => {
         case "/api/studentsManager":
             switch (method) {
                 case "POST":
-                    let flag = await serverMethods.checkId(req);
-                        console.log('flag :', flag);
-                        // if (flag){
-                        //     console.log("yes");
-                        //     await serverMethods.createStudent(req);
-                        // }
-                        // else{
-                        //     console.log("no");
-                        // }
+
+                    let newStudentObj = await serverMethods.setDataOfNewStudent(req)
+                    // console.log(newStudentObj);
+
+                    let flag = await serverMethods.checkId(newStudentObj.id);
+                    // console.log('flag :', flag);
                     if (flag) {
-                        // console.log('flag :', flag);
-                        serverMethods.createStudent(req);
+                        // console.log("yes");
+                        serverMethods.createStudent(newStudentObj);
                         res.end("The student was successfully added");
                         break;
                     }
+                    //     // else{
+                    //     //     console.log("no");
+                    //     // }
+                    // if (flag) {
+                    //     // console.log('flag :', flag);
+                    //     serverMethods.createStudent(req);
+                    //     
+                    // }
                     else { res.end("The ID number you entered is already occupied. Please enter another ID"); }
-                    // res.end("test");
+                    // // res.end("test");
                     break;
 
             }

@@ -7,13 +7,33 @@ function getStusents() {
     return studentsList;
 }
 
-function deleteStudent() {
+async function deleteStudent(req) {
+
+    let buffers = [];
+    for await (const chunk of req) {
+        buffers.push(chunk);
+    }
+    let newData = Buffer.concat(buffers).toString();
+    let newDataObj =  JSON.parse(newData);
+   let  id= newDataObj.id;
+
     const studentsList = getStusents();
     let studentsListObj = JSON.parse(studentsList);
-    let studentRemove = studentsListObj.shift();
+
+    let counterIDs = 0
+    // console.log(studentsListObj);
+
+    studentsListObj.forEach((element,index) => {
+        if(element.id==id){
+            studentsListObj.splice(index,1) 
+            counter++;
+        }
+    });
+      
     let studentsListStr = JSON.stringify(studentsListObj);
     fs.writeFileSync(viewsPath + "/data/students.json", studentsListStr);
-    return studentRemove;
+    return `The number of students with ID ${id} deleted is ${counterIDs}`;
+    
 }
 
 async function setDataOfNewStudent(req) {
@@ -26,14 +46,14 @@ async function setDataOfNewStudent(req) {
     return newStudentObj;
 }
 
-async function createStudent(req) {
+async function createStudent(student) {
 
-    const buffers = [];
-    for await (const chunk of req) {
-        buffers.push(chunk);
-    }
-    const newStudent = Buffer.concat(buffers).toString();
-    const newStudentObj =  JSON.parse(newStudent);
+    // const buffers = [];
+    // for await (const chunk of req) {
+    //     buffers.push(chunk);
+    // }
+    // const newStudent = Buffer.concat(buffers).toString();
+    // const newStudentObj =  JSON.parse(newStudent);
 
 
     // const newStudentObj1 = await setDataOfNewStudent(req)
@@ -44,16 +64,15 @@ async function createStudent(req) {
 
     const objStudents =  JSON.parse(studentsList);
 
-    objStudents.push(newStudentObj);
+    objStudents.push(student);
 
     const studentsListStr = JSON.stringify(objStudents);
     fs.writeFileSync(viewsPath + "/data/students.json", studentsListStr);
 }
 
 
-async function checkId(req) {
-    let newStudentObj = await setDataOfNewStudent(req)
-    let id = newStudentObj.id;
+async function checkId(id) {
+    
     // console.log('id :', id);
 
     let studentsList = getStusents();
@@ -72,4 +91,4 @@ async function checkId(req) {
 }
 
 
-module.exports = { getStusents, deleteStudent, createStudent, checkId };
+module.exports = { getStusents, deleteStudent, createStudent, checkId, setDataOfNewStudent };

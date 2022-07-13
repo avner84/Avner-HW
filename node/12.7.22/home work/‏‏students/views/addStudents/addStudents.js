@@ -12,6 +12,9 @@ form.addEventListener("submit", (event)=>{
     fetch("http://localhost:3000/api/studentsManager",{
         method: "POST",
         body: JSON.stringify(jsonData),
-    }).then((res)=>res.text()).then((res)=>alert(res));
+    }).then((res)=>res.text()).then((res)=>{
+        if (res == "The student was successfully added")
+        {location.reload();}
+        alert(res)});
 
 });

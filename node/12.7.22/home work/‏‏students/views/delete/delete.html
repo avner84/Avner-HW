@@ -16,8 +16,15 @@
         <a href="/addStudents"><button>Go to the Add Students page</button></a>
     </nav>
     <main>
-        <button id="deleteStudentBtn" type="button" class="btn btn-danger">Click to delete a student from the class</button>
-        <div id="deletionInfo"></div>
+        <!-- <button id="deleteStudentBtn" type="button" class="btn btn-danger">Click to delete a student from the class</button>
+        <div id="deletionInfo"></div> -->
+
+        <form action="#">
+            <label for="StudentId">ID of student:</label><br>
+            <input type="number" id="StudentId" name="id"><br>
+            <input type="submit" value="Delete student" id="submit">
+          </form> 
+
     </main>
 
     <script src="delete.js"></script>
